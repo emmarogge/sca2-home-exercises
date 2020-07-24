@@ -20,8 +20,20 @@ input {
   font-size: 1pc;
 }
 
-#winMessage {
-  background-color: yellow;
+.message {
   border-color: black;
-  padding: 25pc;
+  padding: 30px;
+  border-radius: 25px;
+  border-width: 10px;
+  border-color: black;
+  border-style: dotted;
+  border-width: 7px;
+}
+
+#loseMessage {
+  background-color: red;
+}
+
+#winMessage {
+  background-color: lime;
 }

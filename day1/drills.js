@@ -3,12 +3,30 @@ const assert = require("assert")
 // Feel free to look things up online!
 
 const reverse = function(str) {
-  // TODO - write a function which reverses the string
+  // DONE - write a function which reverses the string
+  /* Split the string */
+  var splitString = str.split("");
+  // console.log("splitString: " + splitString);
+
+  /* Reverse items in array */
+  var reversedArray = splitString.reverse();
+  // console.log("reversedArray: " + reversedArray);
+
+  /* Join items in array into a string */
+  var joinArray = reversedArray.join("");
+  // console.log("joinArray: " + joinArray);
+  return joinArray;
 }
 
 const factorial = function(num) {
   // TODO - write a function which returns the factorial of a positive integer
   // For example, 5! = 5 * 4 * 3 * 2 * 1 = 120
+  var product = 1;
+  for (i = num; i > 0; i = i - 1){
+    product = product * i;
+    // console.log("i: " + i + " product: " + product);
+  }  
+  return product;
 }
 
 const announceDate = function() {
@@ -40,8 +58,7 @@ const unzip = function(arr) {
 }
 
 // Write tests here:
-
-assert(1 < 2)
-assert(1 + 2 == 3)
-assert([2, 3][0] === 2)
-// assert(reverse("3df") === "fd3")
+assert(reverse("emma rogge") === "eggor amme")
+assert(reverse("") == "")
+assert(factorial(5) === 120)
+assert(factorial(1) === 1)

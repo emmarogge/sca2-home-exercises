@@ -14,55 +14,63 @@ class App extends Component {
       win: false,
       streak: 0,
       attempted: false
-    }
+    };
+    console.log(`Hidden Number: ${this.state.randomValue}\n`);
   }
 
   updateGuess = event => {
+    console.log(`Hidden Number: ${this.state.randomValue}`);
     this.setState({ guess: event.target.value})
   }
 
-  checkWin = event => {
-    event.preventDefault();
-    // DONE: check if guess equal to randomValue and update this.state.win
-    if (this.state.guess == this.state.randomValue) {
-      const wins = this.state.streak;
-      this.resetRandomValue();
-      this.clearInput();
-      this.setState(
-        {
-          win: true, 
-          streak: wins + 1,
-        });
-    } else {
-      this.clearInput();
-      this.setState({
-        win: false, 
-        streak: 0,
-        attempted: true,
-      });
-    }
-  }
+  // checkWin = event => {
+  //   event.preventDefault();
+  //   // DONE: check if guess equal to randomValue and update this.state.win
+  //   if (this.state.guess === this.state.randomValue) {
+  //     const wins = this.state.streak;
+  //     this.resetRandomValue();
+  //     this.clearInput();
+  //     this.setState(
+  //       {
+  //         win: true, 
+  //         streak: wins + 1,
+  //       });
+  //   } else {
+  //     this.clearInput();
+  //     this.setState({
+  //       win: false, 
+  //       streak: 0,
+  //       attempted: true,
+  //     });
+  //   }
+  // }
 
-  clearInput = () => {
-    document.getElementById("guessForm").reset();
-  }
+  // clearInput = () => {
+  //   document.getElementById("guessForm").reset();
+  // }
 
-  resetRandomValue = event => {
-    console.log("Random value: " + this.state.randomValue);
-    this.setState({randomValue : Math.floor(Math.random() * 100)});
-  }
+  // resetRandomValue = event => {
+  //   console.log("Random value: " + this.state.randomValue);
+  //   this.setState(
+  //       {
+  //         randomValue : Math.floor(Math.random() * 100),
+  //         win: false,
+  //         streak: this.streak
+  //       }
+  //     );
+  // }
 
   render() {
     return (
 
       <div className="App">
         <Header />
-        <div> You have guessed correctly {this.state.streak} times in a row! </div>
-        {/* <div>Current value: {this.state.randomValue}</div> */}
+        {/* <div> You have guessed correctly {this.state.streak} times in a row! </div> */}
+        <div>Current Random Value: {this.state.randomValue}</div>
         <form id="guessForm">
-          <input type="submit" value="Pick a new hidden number." onClick={this.resetRandomValue}/>
+          {/* <input type="submit" value="Pick a new hidden number." onClick={this.resetRandomValue}/> */}
           <label>
-            Enter a guess:
+            Guess the hidden number:
             <input
               type="number"
               value={this.state.value}
